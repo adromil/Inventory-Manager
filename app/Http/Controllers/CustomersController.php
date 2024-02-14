@@ -43,14 +43,14 @@ class CustomersController extends Controller
     {
         // validate
         $this->validate($request, [
-          'name' => 'required|min:3|max:150|unique:customers,email',
-          'email' => 'required|min:3|max:150|email|unique:customers,email',
-          'phone' => 'required|min:3|max:150',
-          'street' => 'required|min:3|max:150',
-          'house_number' => 'required|min:1|max:150',
-          'postal' => 'required|min:1|max:150',
-          'state_province_county' => 'required|min:3|max:150',
-          'country' => 'required|min:3|max:150'
+            'name' => 'required|min:3|max:150|unique:customers,email',
+            'email' => 'required|min:3|max:150|email|unique:customers,email',
+            'phone' => 'required|min:3|max:150',
+            'street' => 'required|min:3|max:150',
+            'house_number' => 'required|min:1|max:150',
+            'postal' => 'required|min:1|max:150',
+            'state_province_county' => 'required|min:3|max:150',
+            'country' => 'required|min:3|max:150'
         ]);
 
         // new instance of the model

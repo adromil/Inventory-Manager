@@ -19,10 +19,10 @@
 							<dt>Location name</dt>
 							<dd>{{$location->name}}</dd>
               <dt>Address</dt>
-              <dd>{{$location->street}} {{$location->house_number}}</dd>
-              <dt>Postal / zipcode</dt>
+              <dd>{{$location->house_number}} {{$location->street}}</dd>
+              <dt>Postal / Zip Code</dt>
               <dd>{{$location->postal}}</dd>
-              <dt>State / Province / County</dt>
+              <dt>City / Province</dt>
               <dd>{{$location->state_province_county}}</dd>
               <dt>Country</dt>
               <dd>{{$location->country}}</dd>

@@ -22,7 +22,7 @@
 									<th>Location name</th>
                   <th>Location address</th>
                   <th>Postal code</th>
-                  <th>State / Province / County</th>
+                  <th>City / Province</th>
                   <th>Country</th>
 									<th></th>
 								</tr>
@@ -33,7 +33,7 @@
 									<tr>
 										<td>{{$location->id}}</td>
 										<td><a href="/storage-locations/{{$location->id}}">{{$location->name}}</a></td>
-                    <td>{{$location->street}} {{$location->house_number}}</td>
+                    <td>{{$location->house_number}} {{$location->street}}</td>
                     <td>{{$location->postal}}</td>
                     <td>{{$location->state_province_county}}</td>
                     <td>{{$location->country}}</td>

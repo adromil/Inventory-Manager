@@ -44,8 +44,8 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
-                  {{ Form::label('postal', 'Postal / Zip code') }}
-                  {{ Form::text('postal', '', ['class' => 'form-control', 'placeholder' => 'Postal / Zip code']) }}
+                  {{ Form::label('postal', 'Postal / Zip Code') }}
+                  {{ Form::text('postal', '', ['class' => 'form-control', 'placeholder' => 'Postal / Zip Code']) }}
                 </div>
               </div>
             </div>
@@ -53,8 +53,8 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  {{ Form::label('state_province_county', 'State / Province / County') }}
-                  {{ Form::text('state_province_county', '', ['class' => 'form-control', 'placeholder' => 'State / Province / County']) }}
+                  {{ Form::label('state_province_county', 'City / Province') }}
+                  {{ Form::text('state_province_county', '', ['class' => 'form-control', 'placeholder' => 'City / Province']) }}
                 </div>
               </div>
               <div class="col-sm-6">

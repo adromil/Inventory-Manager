@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Order;
-use App\Customer;
+use App\Supplier;
+use App\OrderProduct;
 use App\Product;
 use DB;
 use Illuminate\Http\Request;
@@ -33,7 +34,7 @@ class OrdersController extends Controller
     public function create()
     {
         // get customers and products
-        $customers = Customer::all();
+        $suppliers = Supplier::all();
         $products = Product::all();
 
         $order_statuses = [
@@ -48,7 +49,7 @@ class OrdersController extends Controller
         ];
 
         // return view
-        return view('orders.create')->with('customers', $customers)->with('products', $products)->with('statuses', $order_statuses);
+        return view('orders.create')->with('suppliers', $suppliers)->with('products', $products)->with('statuses', $order_statuses);
     }
 
     /**
@@ -61,7 +62,7 @@ class OrdersController extends Controller
     {
         // validate
         $this->validate($request, [
-          'customer_id' => 'required|numeric',
+          'supplier_id' => 'required|numeric',
           'status' => 'required|max:150',
           'product_id' => 'required|array|min:1',
           'product_id.*' => 'required|numeric',
@@ -81,7 +82,7 @@ class OrdersController extends Controller
           $order->notes = $request->input('notes');
         }
 
-        $order->customer_id = $request->input('customer_id');
+        $order->supplier_id = $request->input('supplier_id');
         $order->status = $request->input('status');
 
         $order->save();
@@ -127,7 +128,30 @@ class OrdersController extends Controller
      */
     public function edit(Order $order)
     {
-        //
+        // get suppliers and products
+        $supplier = Supplier::find($order->supplier_id);
+        $order_products = OrderProduct::with('Product')->where('order_id', '=', $order->id)->get();
+        $products = Product::whereIn('id', $order_products->pluck('product_id'))->with('order_products')->get();
+//        dd($order_products);
+
+        $order_statuses = [
+            'Quote' => 'Quote',
+            'Quote sent' => 'Quote sent',
+            'Back order' => 'Back order',
+            'Processing' => 'Processing',
+            'Awaiting payment' => 'Awaiting payment',
+            'Ready to ship' => 'Ready to ship',
+            'Shipped' => 'Shipped',
+            'Cancelled' => 'Cancelled'
+        ];
+
+        // return view
+        return view('orders.edit')
+            ->with('supplier', $supplier)
+            ->with('products', $products)
+            ->with('statuses', $order_statuses)
+            ->with('order', $order)
+            ->with('order_products', $order_products);
     }
 
     /**

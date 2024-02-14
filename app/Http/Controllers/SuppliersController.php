@@ -43,14 +43,35 @@ class SuppliersController extends Controller
     {
         // Validate the user input
         $this->validate($request, [
-          'name' => 'required|min:3|max:50|unique:suppliers',
-          'website' => 'required|min:3|max:150|starts_with:http,https'
+            'name' => 'required|min:3|max:50|unique:suppliers',
+            'contact_person' => 'required|min:3|max:255|',
+            'email' => 'required|min:3|max:150|email',
+            'phone' => 'required|min:3|max:150',
+            'mobile' => 'required|min:3|max:150',
+            'fax' => 'required|min:3|max:150',
+            'street' => 'required|min:3|max:150',
+            'house_number' => 'required|min:1|max:150',
+            'postal' => 'required|min:1|max:150',
+            'state_province_county' => 'required|min:3|max:150',
+            'country' => 'required|min:3|max:150',
+            'website' => 'required|min:3|max:150|starts_with:http,https'
         ]);
 
+        dd($request);
         // Create new instance of the model
         $supplier = new Supplier;
 
         $supplier->name = $request->input('name');
+        $supplier->contact_person = $request->input('contact_person');
+        $supplier->email = $request->input('email');
+        $supplier->phone = $request->input('phone');
+        $supplier->mobile = $request->input('mobile');
+        $supplier->fax = $request->input('fax');
+        $supplier->street = $request->input('street');
+        $supplier->house_number = $request->input('house_number');
+        $supplier->postal = $request->input('postal');
+        $supplier->state_province_county = $request->input('state_province_county');
+        $supplier->country = $request->input('country');
         $supplier->website = $request->input('website');
 
         // Save the new model
@@ -89,6 +110,7 @@ class SuppliersController extends Controller
         // Get the supplier to edit
         $supplier = Supplier::find($supplier);
 
+//        dd($supplier);
         // Return the edit view
         return view('suppliers.edit')->with('supplier', $supplier);
     }
@@ -107,12 +129,32 @@ class SuppliersController extends Controller
 
         // Validate the user input
         $this->validate($request, [
-          'name' => 'required|min:3|max:50|unique:suppliers,name,'.$supplier->id,
-          'website' => 'required|min:3|max:150|starts_with:http,https'
+            'name' => 'required|min:3|max:50|unique:suppliers,name,'.$supplier->id,
+            'contact_person' => 'required|min:3|max:255|',
+            'email' => 'required|min:3|max:150|email',
+            'phone' => 'required|min:3|max:150',
+            'mobile' => 'required|min:3|max:150',
+            'fax' => 'required|min:3|max:150',
+            'street' => 'required|min:3|max:150',
+            'house_number' => 'required|min:1|max:150',
+            'postal' => 'required|min:1|max:150',
+            'state_province_county' => 'required|min:3|max:150',
+            'country' => 'required|min:3|max:150',
+            'website' => 'required|min:3|max:150|starts_with:http,https'
         ]);
 
         // Edit the supplier
         $supplier->name = $request->input('name');
+        $supplier->contact_person = $request->input('contact_person');
+        $supplier->email = $request->input('email');
+        $supplier->phone = $request->input('phone');
+        $supplier->mobile = $request->input('mobile');
+        $supplier->fax = $request->input('fax');
+        $supplier->street = $request->input('street');
+        $supplier->house_number = $request->input('house_number');
+        $supplier->postal = $request->input('postal');
+        $supplier->state_province_county = $request->input('state_province_county');
+        $supplier->country = $request->input('country');
         $supplier->website = $request->input('website');
 
         // Save the changes

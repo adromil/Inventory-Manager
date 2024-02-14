@@ -15,11 +15,11 @@
 						<h3 class="box-title">Orders</h3>
 					</div>
 					<div class="box-body">
-						<table class="table" id="datatable">
+						<table class="table table-responsive" id="datatable">
 							<thead>
 								<tr>
 									<th>#</th>
-									<th>Customer name</th>
+									<th>Supplier name</th>
 									<th>Status</th>
 									<th>Created at</th>
                   <th></th>
@@ -42,11 +42,14 @@
 	                @endphp
 
 	                <tr>
-	                  <td>{{$order->id}}</td>
-	                  <td><a href="{{url('')}}/customers/{{$order->customer->id}}">{{$order->customer->name}}</a></td>
-	                  <td><span class="label label-{{$label}}">{{$order->status}}</span></td>
-	                  <td>{{$order->created_at}}</td>
-                    <td><a href="{{url('')}}/orders/{{$order->id}}" class="btn btn-default">View</a></td>
+                        <td>{{$order->id}}</td>
+                        <td><a href="{{url('')}}/customers/{{$order->supplier->id}}">{{$order->supplier->name}}</a></td>
+                        <td><span class="label label-{{$label}}">{{$order->status}}</span></td>
+                        <td>{{$order->created_at}}</td>
+                        <td>
+                            <a href="{{url('')}}/orders/{{$order->id}}" class="btn btn-default">View</a>
+                            <a href="{{url('')}}/orders/{{$order->id}}/edit" class="btn btn-default">Edit</a>
+                        </td>
 	                </tr>
 	              @endforeach
 

@@ -14,11 +14,11 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
+            $table->unsignedBigInteger('id', true);
             $table->string('name');
             $table->mediumText('description');
-            $table->integer('product_category_id')->unsigned();
-            $table->integer('supplier_id')->unsigned();
+            $table->unsignedBigInteger('product_category_id')->unsigned()->default(0);
+            $table->unsignedBigInteger('supplier_id')->unsigned()->default(0);
             $table->decimal('sales_price', 8, 2);
             $table->decimal('buy_price', 8, 2);
             $table->boolean('instock');
@@ -27,7 +27,8 @@ class CreateProductsTable extends Migration
             $table->foreign('product_category_id')->references('id')->on('product_categories')->onDelete('cascade');
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
 
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

@@ -14,14 +14,15 @@ class CreateStorageLocationsTable extends Migration
     public function up()
     {
         Schema::create('storage_locations', function (Blueprint $table) {
-            $table->increments('id');
+            $table->unsignedBigInteger('id', true);
             $table->string('name');
             $table->string('street');
             $table->string('house_number');
             $table->string('postal');
             $table->string('state_province_county');
             $table->string('country');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

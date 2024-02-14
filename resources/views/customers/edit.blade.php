@@ -3,7 +3,7 @@
 @section('title', 'Edit customer')
 
 @section('content_header')
-    <h1>Edit customer {{$customer->name}}</h1>
+    <h1>{{$customer->name}}</h1>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
 			<div class="col-sm-12">
 				<div class="box box-danger">
 					<div class="box-header with-border">
-						<h3 class="box-title">Edit customer {{$customer->name}}</h3>
+						<h3 class="box-title">Edit customer</h3>
 					</div>
 					<div class="box-body">
 						{!! Form::open(['action' => ['CustomersController@update', $customer->id], 'method' => 'post']) !!}
@@ -62,7 +62,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
-                  {{ Form::label('postal', 'Postal / Zip code') }}
+                  {{ Form::label('postal', 'Postal / Zip Code') }}
                   {{ Form::text('postal', $customer->postal, ['class' => 'form-control', 'placeholder' => 'Postal / Zip code']) }}
                 </div>
               </div>
@@ -71,8 +71,8 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  {{ Form::label('state_province_county', 'State / Province / County') }}
-                  {{ Form::text('state_province_county', $customer->state_province_county, ['class' => 'form-control', 'placeholder' => 'State / Province / County']) }}
+                  {{ Form::label('state_province_county', 'City / Province') }}
+                  {{ Form::text('state_province_county', $customer->state_province_county, ['class' => 'form-control', 'placeholder' => 'City / Province']) }}
                 </div>
               </div>
               <div class="col-sm-6">

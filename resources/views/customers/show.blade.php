@@ -24,9 +24,9 @@
 							<dd>{{$customer->email}}</dd>
 							<dt>Address</dt>
 							<dd>{{$customer->street}} {{$customer->house_number}}</dd>
-							<dt>Postal / zipcode</dt>
+							<dt>Postal / Zip Code</dt>
 							<dd>{{$customer->postal}}</dd>
-							<dt>State / Province / County</dt>
+							<dt>City / Province</dt>
 							<dd>{{$customer->state_province_county}}</dd>
 							<dt>Country</dt>
 							<dd>{{$customer->country}}</dd>

@@ -22,7 +22,7 @@
 									<th>Customer name</th>
 									<th>Email address</th>
 									<th>Phone number</th>
-									<th>Country</th>
+									<th>Location</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -34,7 +34,7 @@
 										<td><a href="/customers/{{$customer->id}}">{{$customer->name}}</a></td>
 										<td>{{$customer->email}}</td>
 										<td>{{$customer->phone}}</td>
-										<td>{{$customer->country}}</td>
+										<td>{{$customer->state_province_county}}</td>
 										<td><a href="/customers/{{$customer->id}}/edit" class="btn btn-default">Edit</a></td>
 									</tr>
 								@endforeach

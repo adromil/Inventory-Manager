@@ -40,6 +40,9 @@ Route::resource('storage-locations', 'StorageLocationsController')->middleware('
 Route::resource('customers', 'CustomersController')->middleware('auth');
 Route::resource('orders', 'OrdersController')->middleware('auth');
 
+Route::get('/orders/{id}/edit', 'OrdersController@edit')->middleware('auth');
+
+
 Route::get('/stock/add', 'ProductStocksController@addView')->middleware('auth');
 Route::post('/stock/add', 'ProductStocksController@addStock')->middleware('auth');
 

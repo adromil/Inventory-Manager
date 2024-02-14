@@ -14,7 +14,7 @@ class CreateCustomersTable extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->increments('id');
+            $table->unsignedBigInteger('id', true);
             $table->string('name');
             $table->string('street');
             $table->string('house_number');
@@ -23,7 +23,8 @@ class CreateCustomersTable extends Migration
             $table->string('country');
             $table->string('phone');
             $table->string('email');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

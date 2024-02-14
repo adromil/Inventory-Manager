@@ -14,11 +14,12 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('customer_id')->unsigned();
+            $table->unsignedBigInteger('id', true);
+            $table->unsignedBigInteger('customer_id');
             $table->string('status');
             $table->mediumText('notes')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
 
             $table->foreign('customer_id')->references('id')->on('customers');
         });

@@ -45,7 +45,7 @@
               <thead>
               <tr>
                 <th>Order ID</th>
-                <th>Customer</th>
+                <th>Supplier</th>
                 <th>Status</th>
                 <th>Placed at</th>
               </tr>
@@ -68,7 +68,7 @@
 
                 <tr>
                   <td>{{$order->id}}</td>
-                  <td>{{$order->customer->name}}</td>
+                  <td>{{$order->supplier->name}}</td>
                   <td><span class="label label-{{$label}}">{{$order->status}}</span></td>
                   <td>{{$order->created_at}}</td>
                 </tr>

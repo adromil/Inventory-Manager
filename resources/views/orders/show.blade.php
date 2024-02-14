@@ -16,8 +16,8 @@
 					</div>
 					<div class="box-body">
 						<dl class="dl-vertical">
-							<dt>Customer name</dt>
-							<dd><a href="/customers/{{$order->customer->id}}">{{$order->customer->name}}</a> </dd>
+							<dt>Supplier name</dt>
+							<dd><a href="/suppliers/{{$order->supplier->id}}">{{$order->supplier->name}}</a> </dd>
 							<dt>Created at</dt>
 							<dd>{{$order->created_at}}</dd>
 						</dl>
@@ -57,13 +57,13 @@
                     <td>{{$i}}</td>
                     <td>{{$product->name}} (#{{$product->id}})</td>
                     <td>{{$product->quantity}}</td>
-                    <td>&euro;{{$product->sales_price}}</td>
-                    <td class="text-right">&euro;{{$current_product_total_price}}</td>
+                    <td>&#8369; {{$product->sales_price}}</td>
+                    <td class="text-right">&#8369; {{$current_product_total_price}}</td>
                   </tr>
                 @endforeach
 
                 <tr class="im-total-border">
-                  <td colspan="5" class="text-right text-bold">Total due: &euro;{{$total}}</td>
+                  <td colspan="5" class="text-right text-bold">Total due: &#8369; {{number_format($total, 2)}}</td>
                 </tr>
 
 							</tbody>

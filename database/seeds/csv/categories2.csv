@@ -1,0 +1,3 @@
+Executed SQL Statement : truncate table `inventorymanagerdb`.`product_categories` 
+Error Number : 1701 
+Error Message: Cannot truncate a table referenced in a foreign key constraint (`inventorymanagerdb`.`products`, CONSTRAINT `products_product_category_id_foreign` FOREIGN KEY (`product_category_id`) REFERENCES `inventorymanagerdb`.`product_categories` (`id`)) 

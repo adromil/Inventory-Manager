@@ -21,48 +21,49 @@
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
-									{{Form::label('supplier_id', 'Supplier')}}
-									{{Form::select('supplier_id', $suppliers->pluck('name', 'id'), null, ['id' => 'select2', 'class' => 'form-control select2', 'placeholder' => 'Supplier'])}}
-									<p>Is the customer you're looking for not in this list? Add them <a target="_blank" href="/suppliers/create">here</a>.</p>
+									{{Form::label('name', 'Supplier')}}
+									{{Form::text('name', $supplier->name, ['id' => 'supplier_id', 'class' => 'form-control', 'disabled' => 'disabled', 'placeholder' => 'Supplier'])}}
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="form-group">
 									{{Form::label('status', 'Status')}}
-									{{Form::select('status', $statuses, null, ['id' => 'select2', 'class' => 'form-control select2', 'placeholder' => 'Status'])}}
+									{{Form::select('status', $statuses, $order->status, ['id' => 'select2', 'class' => 'form-control select2', 'placeholder' => 'Status'])}}
 								</div>
 							</div>
 						</div>
 
             <h4>Item(s) <hr></h4>
-            <div id="fieldlist">
 
+            <div id="fieldlist">
+                @foreach($order_products as $order_product)
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
-                    {{Form::label('product_id[]', 'Product')}}
-                    {{Form::select('product_id[]', $products->pluck('name', 'id'), null, ['id' => 'select2', 'class' => 'form-control select2', 'placeholder' => 'Product'])}}
+                      {{ Form::label('name', 'Product') }}
+                      {{ Form::text('name', $order_product->product->name, ['class' => 'form-control', 'disabled' => 'disabled', 'placeholder' => 'Product name']) }}
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    {{Form::label('quantity[]', 'Quantity')}}
-                    {{Form::number('quantity[]', '', ['class' => 'form-control', 'placeholder' => 'Quantity'])}}
+                    {{Form::label('quantity', 'Quantity')}}
+                    {{Form::number('quantity', $order_product->quantity, ['class' => 'form-control', 'placeholder' => 'Quantity'])}}
                   </div>
                 </div>
               </div>
+                @endforeach
 
             </div>
 
 						<div class="form-group">
-							<a id="more" class="btn btn-block btn-default disabled"><i class="fa fa-plus"></i></a>
+							<a id="more" class="btn btn-block btn-default"><i class="fa fa-plus"></i></a>
 						</div>
 
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="form-group">
 									{{Form::label('notes', 'Notes (optional)')}}
-									{{Form::textarea('notes', '', ['id' => 'ck-textarea', 'class' => 'form-control ck-textarea', 'style' => 'resize: vertical', 'placeholder' => 'Notes'])}}
+									{{Form::textarea('notes', $order->notes, ['id' => 'ck-textarea', 'class' => 'form-control ck-textarea', 'style' => 'resize: vertical', 'placeholder' => 'Notes'])}}
 								</div>
 							</div>
 						</div>

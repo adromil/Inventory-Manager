@@ -1,0 +1,11 @@
+name,street,house_number,postal,state_province_county,country,phone,email
+Juan Dela Cruz,Brgy. Maligaya,Pasig City,1600,Metro Manila,Philippines,+63 912 345 6789,juan.delacruz@example.com
+Maria Gonzalez,San Fernando,Pampanga,2000,Central Luzon,Philippines,+63 949 876 5432,maria.gonzalez@example.com
+Pedro Santos,Lapu-Lapu City,Cebu,6015,Visayas,Philippines,+63 935 102 9876,pedro.santos@example.com
+Ana Reyes,J.N. Romero Street,Davao City,8000,Mindanao,Philippines,+63 906 537 2910,ana.reyes@example.com
+Carlos Torres,Barangay Mambucal,Cagayan de Oro City,9000,Northern Mindanao,Philippines,+63 977 468 1357,carlos.torres@example.com
+Elena Rodriguez,Rizal Street,Lucena City,4300,Calabarzon,Philippines,+63 928 901 5624,elena.rodriguez@example.com
+Jose Rivera,J. Luna Avenue,Iloilo City,5000,Western Visayas,Philippines,+63 950 385 7932,jose.rivera@example.com
+Isabel Mendoza,San Miguel,Zamboanga City,7000,Zamboanga Peninsula,Philippines,+63 919 274 0158,isabel.mendoza@example.com
+Diego Garcia,J. Abad Santos Street,Bacolod City,6100,Negros Occidental,Philippines,+63 987 654 3219,diego.garcia@example.com
+Catalina Lopez,M.H. del Pilar Street,Legazpi City,4500,Bicol Region,Philippines,+63 945 821 6543,catalina.lopez@example.com

@@ -22,7 +22,7 @@
 									<th>Product name</th>
                   <th>Sales price</th>
                   <th>Buy-in price</th>
-                  <th>Instock</th>
+                  <th>Quantity</th>
                   <th>Discontinued</th>
 									<th></th>
 								</tr>
@@ -37,9 +37,9 @@
                     <td>{{$product->buy_price}}</td>
                     <td>
                       @if ($product->instock == 1)
-                        Yes
+                        {{ $product->stock[0]->quantity }}
                       @else
-                        No
+                            <strong class="text-danger">Out of stock</strong>
                       @endif
                     </td>
                     <td>
