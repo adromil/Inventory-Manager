@@ -36,7 +36,7 @@ Follow the steps below to get Inventory-Manager set up within minutes!
 
 ```
 // clone this repository
-git clone https://github.com/rpm192/Laravel-Inventory-Manager.git ./Inventory-Manager
+git clone https://github.com/adromil/Inventory-Manager.git ./Inventory-Manager
 
 // install the necessary packages
 cd Inventory-Manager
